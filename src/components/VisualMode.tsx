@@ -8,16 +8,16 @@ const widgets = [
     title: 'ABOUT ME',
     icon: <User size={28} />,
     content: (
-      <div style={{ display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap' }}>
+      <div className="about-container">
         <img 
           src="/profile.jpg" 
           alt="Ahmed Talaat" 
-          style={{ width: '200px', height: '200px', borderRadius: '50%', objectFit: 'cover', border: '4px solid rgba(79, 172, 254, 0.5)', boxShadow: '0 15px 30px rgba(0,0,0,0.5)' }} 
+          className="about-img"
         />
-        <div style={{ flex: 1, minWidth: '300px' }}>
-          <h1 style={{ fontSize: '3.5rem', margin: '0 0 10px 0', color: '#fff', fontWeight: 900 }}>AHMED TALAAT</h1>
-          <h2 style={{ fontSize: '1.5rem', color: '#4facfe', margin: '0 0 30px 0', textTransform: 'uppercase', letterSpacing: '2px' }}>Full Stack Software Engineer</h2>
-          <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#cbd5e1', maxWidth: '800px' }}>
+        <div className="about-text-container">
+          <h1 className="about-title">AHMED TALAAT</h1>
+          <h2 className="about-subtitle">Full Stack Software Engineer</h2>
+          <p className="about-p">
             Results-driven Software Engineer with proven expertise building secure, scalable, and high-performance full-stack applications using Go, React, Python, and Java.
             <br/><br/>
             Experienced in designing enterprise-grade banking systems, identity management solutions (OIDC), and interactive data portals inside Agile teams.
@@ -33,9 +33,9 @@ const widgets = [
     content: (
       <div>
         <div style={{ marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2rem', color: '#fff', margin: '0 0 5px 0' }}>Software Engineer</h2>
-          <h3 style={{ fontSize: '1.2rem', color: '#4facfe', margin: '0 0 15px 0' }}>Si-Ware Systems | Mar 2026 - Present</h3>
-          <ul style={{ fontSize: '1.1rem', color: '#cbd5e1', lineHeight: '1.8', paddingLeft: '20px' }}>
+          <h2 className="exp-title">Software Engineer</h2>
+          <h3 className="exp-job">Si-Ware Systems | Mar 2026 - Present</h3>
+          <ul className="exp-list">
             <li>Co-developed full-stack features for MEDS Online Portal using Go (Gin) REST APIs and React 19.</li>
             <li>Customized Authentik (OIDC) authentication flows for account recovery.</li>
             <li>Enforced multi-tenant isolation and role-based access controls (RBAC).</li>
@@ -43,9 +43,9 @@ const widgets = [
           </ul>
         </div>
         <div>
-          <h2 style={{ fontSize: '2rem', color: '#fff', margin: '0 0 5px 0' }}>Java & T24 Engineer</h2>
-          <h3 style={{ fontSize: '1.2rem', color: '#4facfe', margin: '0 0 15px 0' }}>Ejada | Aug 2025 - Mar 2026</h3>
-          <ul style={{ fontSize: '1.1rem', color: '#cbd5e1', lineHeight: '1.8', paddingLeft: '20px' }}>
+          <h2 className="exp-title">Java & T24 Engineer</h2>
+          <h3 className="exp-job">Ejada | Aug 2025 - Mar 2026</h3>
+          <ul className="exp-list">
             <li>Engineered custom Java routines within Temenos T24 banking platform.</li>
             <li>Developed core financial workflows ensuring compliance with international banking standards.</li>
           </ul>
@@ -59,26 +59,26 @@ const widgets = [
     icon: <Code2 size={28} />,
     content: (
       <div>
-        <h2 style={{ fontSize: '2rem', color: '#fff', marginBottom: '20px' }}>Core Technologies</h2>
+        <h2 className="skills-main-title">Core Technologies</h2>
         
-        <h3 style={{ color: '#4facfe', marginTop: '20px', marginBottom: '10px' }}>Backend & Core Banking</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+        <h3 className="skills-cat-title">Backend & Core Banking</h3>
+        <div className="skills-badge-container">
           {['Go (Golang)', 'Python', 'Java', 'Temenos T24', 'C#', 'Node.js', 'SQL'].map(s => (
-            <span key={s} style={{ background: 'rgba(255,255,255,0.05)', padding: '10px 20px', borderRadius: '8px', fontSize: '1.1rem', border: '1px solid rgba(255,255,255,0.1)' }}>{s}</span>
+            <span key={s} className="skills-badge">{s}</span>
           ))}
         </div>
 
-        <h3 style={{ color: '#4facfe', marginTop: '30px', marginBottom: '10px' }}>Frontend</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+        <h3 className="skills-cat-title">Frontend</h3>
+        <div className="skills-badge-container">
           {['React 19', 'TypeScript', 'Angular', 'Tailwind CSS v4', 'Zustand', 'Recharts'].map(s => (
-            <span key={s} style={{ background: 'rgba(255,255,255,0.05)', padding: '10px 20px', borderRadius: '8px', fontSize: '1.1rem', border: '1px solid rgba(255,255,255,0.1)' }}>{s}</span>
+            <span key={s} className="skills-badge">{s}</span>
           ))}
         </div>
 
-        <h3 style={{ color: '#4facfe', marginTop: '30px', marginBottom: '10px' }}>Infrastructure & DevOps</h3>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+        <h3 className="skills-cat-title">Infrastructure & DevOps</h3>
+        <div className="skills-badge-container">
           {['PostgreSQL', 'MongoDB', 'Redis', 'Docker', 'Authentik (OIDC)', 'CI/CD'].map(s => (
-            <span key={s} style={{ background: 'rgba(255,255,255,0.05)', padding: '10px 20px', borderRadius: '8px', fontSize: '1.1rem', border: '1px solid rgba(255,255,255,0.1)' }}>{s}</span>
+            <span key={s} className="skills-badge">{s}</span>
           ))}
         </div>
       </div>
@@ -89,26 +89,16 @@ const widgets = [
     title: 'RESUME',
     icon: <FileText size={28} />,
     content: (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-        <h2 style={{ fontSize: '2.5rem', color: '#fff', marginBottom: '20px' }}>Full Details</h2>
-        <p style={{ fontSize: '1.2rem', color: '#cbd5e1', marginBottom: '40px', maxWidth: '500px', lineHeight: '1.6', textAlign: 'center' }}>
+      <div className="resume-container">
+        <h2 className="resume-title">Full Details</h2>
+        <p className="resume-p">
           For a complete breakdown of my educational background, certifications, and professional experience, please download my official CV.
         </p>
         <a 
           href="/resume.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
-          style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            color: 'white',
-            textDecoration: 'none',
-            padding: '20px 40px',
-            borderRadius: '50px',
-            fontSize: '1.2rem',
-            fontWeight: 'bold',
-            boxShadow: '0 10px 20px rgba(79, 172, 254, 0.3)'
-          }}
+          className="resume-download-btn"
         >
           Download PDF Resume
         </a>
@@ -175,7 +165,7 @@ const VisualMode = () => {
           <>
             <div className="modal-header">
               <div className="modal-title">
-                <span style={{ color: '#4facfe' }}>{currentData.icon}</span>
+                <span className="modal-title-icon">{currentData.icon}</span>
                 {currentData.title}
               </div>
               <button className="modal-close" onClick={closeModal}>

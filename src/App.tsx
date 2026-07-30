@@ -13,7 +13,7 @@ export type AppFileType = 'about.ts' | 'experience.ts' | 'skills.json' | 'resume
 function App() {
   const [isDevMode, setIsDevMode] = useState(true);
   const [activeFile, setActiveFile] = useState<AppFileType>('about.ts');
-  const [openFiles, setOpenFiles] = useState<AppFileType[]>(['about.ts', 'experience.ts']);
+  const [openFiles, setOpenFiles] = useState<AppFileType[]>(['about.ts', 'experience.ts', 'skills.json', 'resume.md']);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +58,7 @@ function App() {
     <>
       {/* Massive Glow Toggle Button */}
       <button 
-        className="mode-toggle"
+        className={`mode-toggle ${isDevMode ? 'mode-toggle-dev' : 'mode-toggle-visual'}`}
         onClick={toggleMode}
       >
         {isDevMode ? <Monitor size={24} /> : <TerminalIcon size={24} />}
