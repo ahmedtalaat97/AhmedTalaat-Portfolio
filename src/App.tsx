@@ -14,6 +14,7 @@ function App() {
   const [isDevMode, setIsDevMode] = useState(true);
   const [activeFile, setActiveFile] = useState<AppFileType>('about.ts');
   const [openFiles, setOpenFiles] = useState<AppFileType[]>(['about.ts', 'experience.ts', 'skills.json', 'resume.md']);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 768);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -43,6 +44,9 @@ function App() {
       setOpenFiles([...openFiles, file]);
     }
     setActiveFile(file);
+    if (window.innerWidth <= 768) {
+      setIsSidebarOpen(false);
+    }
   };
 
   const handleCloseFile = (file: AppFileType, e: React.MouseEvent) => {
@@ -69,7 +73,12 @@ function App() {
         {isDevMode ? (
           <div className="app-container">
             <div className="activity-bar">
-              <div className="activity-icon active"><Files size={28} strokeWidth={1.5} /></div>
+              <div 
+                className={`activity-icon ${isSidebarOpen ? 'active' : ''}`}
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              >
+                <Files size={28} strokeWidth={1.5} />
+              </div>
               <div className="activity-icon"><Search size={28} strokeWidth={1.5} /></div>
               <div className="activity-icon"><GitBranch size={28} strokeWidth={1.5} /></div>
               <div className="activity-icon"><Play size={28} strokeWidth={1.5} /></div>
@@ -77,7 +86,7 @@ function App() {
               <div className="activity-icon"><Settings size={28} strokeWidth={1.5} /></div>
             </div>
 
-            <Sidebar activeFile={activeFile} onOpenFile={handleOpenFile} />
+            {isSidebarOpen && <Sidebar activeFile={activeFile} onOpenFile={handleOpenFile} />}
 
             <div className="editor-container">
               <Editor 
